@@ -14,10 +14,6 @@ const AddedFeatures = () => {
 
       {car.features.length ? (
 
-        <p>You can purchase items from the store.</p>
-
-      ) : (
-
           <ol type="1">
 
             {car.features.map(item => (
@@ -30,6 +26,9 @@ const AddedFeatures = () => {
             ))}
 
           </ol>
+      ) : (
+        
+        <p>You can purchase items from the store.</p>
 
         )}
 
