@@ -1,17 +1,17 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+//import { useSelector, useDispatch } from "react-redux";
 import { addFeature } from "../actions/actions";
+import useActions from "../hooks/hooked";
 
 const AdditionalFeature = props => {
 
-  const features = useSelector(state => state.additionalFeatures)
-  const dispatch = useDispatch();
+  //const features = useSelector(state => state.additionalFeatures)
+  //const dispatch = useDispatch();
+  const add = useActions(addFeature, props.feature);
 
   return (
 
     <>
-
-      {features.map(feature => {
 
         return (
 
@@ -20,18 +20,20 @@ const AdditionalFeature = props => {
             <button
 
               className="button"
-              id={feature.id}
-              onClick={e => dispatch(addFeature(e.target.id))}
+              id={props.feature.id}
+              onClick={add}
 
-            >Add</button>
+            >
+              
+              Add
+            
+            </button>
 
-            {feature.name} (+{feature.price})
+            {props.feature.name} (+{props.feature.price})
 
           </li>
 
         );
-
-      })}
 
     </>
 
