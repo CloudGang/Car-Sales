@@ -20,9 +20,13 @@ const AddedFeature = React.memo(props => {
         id={props.id}
         onClick={deLete}
 
-      >X</button>
+      >
+        
+        X 
+        
+      </button>
 
-      {props.feature}
+      {props.feature.name}
 
     </li>
 
