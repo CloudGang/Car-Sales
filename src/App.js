@@ -4,10 +4,7 @@ import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
 import Total from './components/Total';
 
-const App = (props) => {
-
-
-  return (
+const App = () => (
 
     <div className="boxes">
 
@@ -26,8 +23,7 @@ const App = (props) => {
       </div>
     </div>
 
-  );
+);
 
-};
 
 export default App;
