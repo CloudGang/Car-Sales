@@ -1,42 +1,33 @@
+// Refactorization in progress
 import React from "react";
 import { deleteFeature } from "../actions/actions";
-import { useSelector, useDispatch } from 'react-redux'
+//import { useSelector, useDispatch } from 'react-redux' 
+import useActions from "../hooks/hooked";
 
-const AddedFeature = props => {
+const AddedFeature = React.memo(props => {
 
-  const features = useSelector(state => state.car.features)
-  const dispatch = useDispatch()
+  //const features = useSelector(state => state.car.features)
+  //const dispatch = useDispatch()
+  const deLete = useActions(deleteFeature, props.feature);
 
   return (
 
-    <>
+    <li>
 
-      {features.map(item => {
+      <button
+      
+        className="button"
+        id={props.id}
+        onClick={deLete}
 
-        return (
+      >X</button>
 
-          <li>
+      {props.feature}
 
-            <button
-            
-              className="button"
-              id={item.id}
-              onClick={(e) => dispatch(deleteFeature(e.target.id))}
-
-            >X</button>
-
-            {item.feature}
-
-          </li>
-
-        );
-
-      })}
-
-    </>
+    </li>
 
   );
   
-};
+});
 
 export default AddedFeature;
