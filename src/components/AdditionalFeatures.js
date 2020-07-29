@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import AdditionalFeature from './AdditionalFeature';
 
-const AdditionalFeatures = props => {
+const AdditionalFeatures = () => {
 
-  const additionalFeatures = useSelector(state => state.additionalFeatures)
+  const store = useSelector(state => state.store)
   
   return (
 
@@ -12,20 +12,24 @@ const AdditionalFeatures = props => {
 
       <h4>Additional Features</h4>
 
-      {!additionalFeatures.length ? (
+      {store.length ? (
 
-        <p>Nice looking car!</p>
+        <ol type="1">
+
+          {store.map(item => (
+
+            <AdditionalFeature key={item.id} feature={item} />
+
+          ))}
+
+        </ol>
 
       ) : (
 
-          <ol type="1">
+        <p>Nice looking car!</p>
 
-            <AdditionalFeature />
-
-          </ol>
-
-        )}
-
+      )}
+      
     </div>
 
   );
